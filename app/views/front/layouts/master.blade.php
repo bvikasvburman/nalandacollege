@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     @include('front.layouts.meta_section')
     @section('meta-section')
     @show
@@ -26,8 +27,6 @@
     @section('slider-section')
     @show
     
-     
-    
     <section id="content">
         <div class="container">
 	    @section('main_content')
@@ -36,13 +35,23 @@
     </section><!--/#content-->
 
     
-    @include('front.layouts.contact_section')
-    @include('front.layouts.link_section')
-    @include('front.layouts.footer_section')
+    @section('contact-section')
+	@include('front.layouts.contact_section')
+    @show
+
     
-    @include('front.layouts.js_section')
+    @section('link-section')
+	@include('front.layouts.link_section')
+    @show
+    
+    
+    @section('footer-section')
+	@include('front.layouts.footer_section')
+    @show
+    
     
     @section('js-section')
+	@include('front.layouts.js_section')
     @show
     
     <script type="text/javascript">

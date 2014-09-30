@@ -27,8 +27,9 @@ return array(
 	| the Mailgun mail service which will provide reliable deliveries.
 	|
 	*/
-
-	'host' => 'smtp.mailgun.org',
+        
+        // 'host' => 'smtp.mailgun.org',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -40,8 +41,8 @@ return array(
 	| stay compatible with the Mailgun e-mail application by default.
 	|
 	*/
-
-	'port' => 587,
+        //'port' => 587,
+	'port' => 465,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -66,8 +67,8 @@ return array(
 	| transport layer security protocol should provide great security.
 	|
 	*/
-
-	'encryption' => 'tls',
+        //'encryption' => 'tls',
+	'encryption' => 'ssl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -79,8 +80,8 @@ return array(
 	| connection. You may also set the "password" value below this one.
 	|
 	*/
-
-	'username' => null,
+        //'username' => null,
+	'username' => 'manjhisamaj14@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -92,8 +93,8 @@ return array(
 	| connection so that the application will be able to send messages.
 	|
 	*/
-
-	'password' => null,
+        //'password' => null,
+	'password' => '$admin123',
 
 	/*
 	|--------------------------------------------------------------------------

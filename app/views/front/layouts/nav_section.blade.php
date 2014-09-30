@@ -12,19 +12,19 @@
 		   <div class="social">
 			<ul class="social-share">
 			    <li>
-				<a href="https://www.facebook.com/profile.php?id=100007047917878" target="_blank">
+				<a href="#" target="_blank">
 				    <i class="fa fa-facebook"></i>
 				</a>
 			    </li>
 			    
 			    <li>
-				<a href="https://twitter.com/manjhisamaj" target="_blank">
+				<a href="#" target="_blank">
 				    <i class="fa fa-twitter"></i>
 				</a>
 			    </li>
 				
 			    <li>
-				<a href="https://plus.google.com/u/0/108005563750698203503/posts" target="_blank">
+				<a href="#" target="_blank">
 				    <i class="fa fa-google-plus"></i>
 				</a>
 			    </li> 
@@ -80,11 +80,11 @@
 			    
 	    <div class="collapse navbar-collapse navbar-right">
 		<ul class="nav navbar-nav">
-		    <li class="active">
+		    <li  {{ ($active_menu == 1) ?  'class="active"' : '' }} >
 			<a href="{{ URL::action('HomeController@index') }}">Home</a>
 		    </li>
 		    
-		    <li class="dropdown">
+		    <li {{ ($active_menu == 2) ?  'class="active dropdown"' : 'class="dropdown"' }} >
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			About Us <i class="fa fa-angle-down"></i></a>
 			<ul class="dropdown-menu">
@@ -92,15 +92,15 @@
 			</ul>
 		    </li>
 		    
-		    <li>
-			<a href="#">Courses</a>
+		    <li {{ ($active_menu == 3) ?  'class="active"' : '' }}>
+			<a href="{{ URL::action('HomeController@getCourses') }}">Courses</a>
 		    </li>
 			
-		    <li>
+		    <li {{ ($active_menu == 4) ?  'class="active"' : '' }} >
 			<a href="#">Profile</a>
 		    </li>
 			
-		    <li class="dropdown">
+		    <li {{ ($active_menu == 5) ?  'class="active dropdown "' : 'class="dropdown"' }}>
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			Activities <i class="fa fa-angle-down"></i></a>
 			<ul class="dropdown-menu">
@@ -110,28 +110,30 @@
 		    </li>
 		    
 		    
-		    <li class="dropdown">
+		    <li {{ ($active_menu == 6) ?  'class="active dropdown"' : 'class="dropdown"' }} >
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			Facilities <i class="fa fa-angle-down"></i></a>
 			<ul class="dropdown-menu">
-			    <li><a href=#">Library Facility</a></li>
-			    <li><a href="#">Computer Lab</a></li>
+			    <li><a href="{{ URL::action('HomeController@getLibraryFacility') }}">Library Facility</a></li>
+			    <li><a href="{{ URL::action('HomeController@getComputerLab') }}">Computer Lab</a></li>
 			</ul>
 		    </li>
 		    
 			
 			
-		    <li>
+		    <li {{ ($active_menu == 7) ?  'class="active"' : '' }}>
 			<a href="#">Alumni</a>
 		    </li>
 			
-		    <li>
+		    <li {{ ($active_menu == 8) ?  'class="active"' : '' }} >
 			<a href="#">Career</a>
 		    </li>
-		    <li>
+		    
+		    <li {{ ($active_menu == 9) ?  'class="active"' : '' }}>
 			<a href="{{ URL::action('HomeController@getContactUs') }}">Contact</a>
 		    </li>
-		    <li>
+		    
+		    <li {{ ($active_menu == 10) ?  'class="active"' : '' }} >
 			<a href="{{ URL::action('HomeController@getPortfolio') }}">Portfolio</a>
 		    </li>
 			

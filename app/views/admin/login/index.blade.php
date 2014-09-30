@@ -11,39 +11,14 @@
     
     <!-- SB Admin CSS - Include with every page -->
     {{ HTML::style('assets/admin/css/sb-admin.css'); }}
+    
+    {{-- bootbar CSS --}}
+    {{ HTML::style('assets/lib/bootbarnotify/bootbar.css'); }}
+
 </head>
 <body>
     <div class="container">
-        <div class="row">
-        
-            <div class="col-md-4 col-md-offset-4">
-                
-                @if(Session::has('success'))
-                    <div class="alert alert-success">
-                        <h2>{{ Session::get('success') }}</h2>
-                    </div>
-                @endif
-                
-                @if(Session::has('error'))
-                    <div class="alert alert-danger">
-                        <h2>{{ Session::get('error') }}</h2>
-                    </div>
-                @endif
-                
-                @if(Session::has('warning'))
-                    <div class="alert alert-warning">
-                        <h2>{{ Session::get('warning') }}</h2>
-                    </div>
-                @endif
-                
-                @if(Session::has('info'))
-                    <div class="alert alert-info">
-                        <h2>{{ Session::get('info') }}</h2>
-                    </div>
-                @endif
-            </div>
-            
-        </div>
+       
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
@@ -70,7 +45,8 @@
                                 <!-- Change this to a button or input when using this as a form -->
                                     {{ Form::submit('Login', array('class'=>'btn btn-lg btn-success btn-block')); }}
                             </fieldset>
-                        </form>
+                        
+                        {{ Form::Close()}}
                     </div>
                 </div>
             </div>
@@ -85,7 +61,39 @@
     <!-- SB Admin Scripts - Include with every page -->
     {{ HTML::script('assets/admin/js/sb-admin.js'); }}
     
-
+    
+    {{-- bootbar js --}}
+    {{ HTML::script('assets/lib/bootbarnotify/bootbar.js'); }}
+    
+    {{-- Custom function js --}}
+    {{ HTML::script('assets/front/js/custom_function.js'); }}
+    
+    <script type="text/javascript">
+    
+    $(function() {
+    
+        @if(Session::has('success'))
+            var mess =   '{{ Session::get('success') }}';
+	    bootBarNotify('success', mess);
+        @endif
+        
+        @if(Session::has('error'))
+            var mess =   '{{ Session::get('error') }}';
+	    bootBarNotify('error', mess);
+        @endif
+        
+        @if(Session::has('warning'))
+            var mess =   '{{ Session::get('warning') }}';
+	    bootBarNotify('warning', mess);
+        @endif
+        
+        @if(Session::has('info'))
+            var mess =   '{{ Session::get('info') }}';
+	    bootBarNotify('info', mess);
+        @endif
+    });
+    </script>
+    
 </body>
 
 </html>

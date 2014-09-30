@@ -44,21 +44,63 @@ class HomeController extends BaseController {
 	//quotes
 	//print_r($principle_quote);
 	//die;
+	$active_menu = '1';
 	
-	
-	return View::make('front.home.index', compact('links', 'link_categories', 'principle_quote', 'director_quote' ));
+	return View::make('front.home.index', compact('active_menu', 'links', 'link_categories', 'principle_quote', 'director_quote' ));
     }
     //=======================================
     
     
     public function getAboutUs()
     {
-	$links 			= $this->links;
-	$link_categories 	= $this->link_categories;
+	$links 		    = $this->links;
+	$link_categories    = $this->link_categories;
+	$active_menu 	    = '2';
 	
+	$aboutus = Content::find(1);
 	$principle_quote = Quote::find(1);
 	$director_quote = Quote::find(2);
-	return View::make('front.home.aboutus', compact('links', 'link_categories', 'principle_quote', 'director_quote' ));
+	return View::make('front.home.aboutus', compact('active_menu', 'links', 'link_categories', 'aboutus', 'principle_quote', 'director_quote'));
+    }
+    //=======================================
+    
+    
+    public function getCourses()
+    {
+	$links 		    = $this->links;
+	$link_categories    = $this->link_categories;
+	$active_menu 	    = '3';
+	
+	$courses = Course::paginate('5');
+	return View::make('front.home.courses', compact('active_menu', 'links', 'link_categories', 'courses'));
+    }
+    //=======================================
+    
+    
+    public function getLibraryFacility()
+    {
+	$links 		    = $this->links;
+	$link_categories    = $this->link_categories;
+	$active_menu 	    = '6';
+	
+	$aboutus = Content::find(2);
+	$principle_quote = Quote::find(1);
+	$director_quote = Quote::find(2);
+	return View::make('front.home.aboutus', compact('active_menu', 'links', 'link_categories', 'aboutus', 'principle_quote', 'director_quote'));
+    }
+    //=======================================
+    
+    
+    public function getComputerLab()
+    {
+	$links 		    = $this->links;
+	$link_categories    = $this->link_categories;
+	$active_menu 	    = '6';
+	
+	$aboutus = Content::find(3);
+	$principle_quote = Quote::find(1);
+	$director_quote = Quote::find(2);
+	return View::make('front.home.aboutus', compact('active_menu', 'links', 'link_categories', 'aboutus', 'principle_quote', 'director_quote'));
     }
     //=======================================
     
@@ -67,22 +109,48 @@ class HomeController extends BaseController {
     {
 	$links 			= $this->links;
 	$link_categories 	= $this->link_categories;
+	$active_menu 	    = '9';
 	
-	$principle_quote = Quote::find(1);
-	$director_quote = Quote::find(2);
-	return View::make('front.home.contactus', compact('links', 'link_categories', 'principle_quote', 'director_quote' ));
+	return View::make('front.home.contactus', compact('active_menu', 'links', 'link_categories', 'principle_quote', 'director_quote' ));
+    }
+    //=======================================
+    
+    
+    public function postContactUs()
+    {
+	$input = Input::all();
+	
+	///$v =  View::make('front.emails.contactus', compact('input' ));
+	
+	$data['name'] 		= $input['name'];
+	$data['email'] 		= $input['email'];
+	$data['phone'] 		= $input['phone'];
+	$data['subject'] 	= $input['subject'];
+	$data['message'] 	= $input['message'];
+	
+	
+	Mail::send('front.emails.contactus', $data, function($message)
+	{
+	    $message->to('bvikasvburman@gmail.com', 'Vikas Burman')->subject('test');
+	});
+	
+	return Redirect::to('/contactus')
+	->with('success', 'Your messege has been send! ')
+	->withInput();
+	
     }
     //=======================================
 
 
     public function getPortfolio()
     {
-	$links 			= $this->links;
-	$link_categories 	= $this->link_categories;
+	$links 		    = $this->links;
+	$link_categories    = $this->link_categories;
+	$active_menu 	    = '10';
 	
 	$principle_quote = Quote::find(1);
 	$director_quote = Quote::find(2);
-	return View::make('front.home.portfolio', compact('links', 'link_categories', 'principle_quote', 'director_quote' ));
+	return View::make('front.home.portfolio', compact('active_menu', 'links', 'link_categories', 'principle_quote', 'director_quote' ));
     }
     //=======================================
     

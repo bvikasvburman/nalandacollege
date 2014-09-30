@@ -18,11 +18,19 @@
 
 Route::get('/', 'HomeController@index');
 //Route::get('/', 'HomeController@postSignup');
-Route::post('/postSignup', 'HomeController@postSignup');
+
 
 Route::get('/aboutus', 'HomeController@getAboutUs');
 Route::get('/contactus', 'HomeController@getContactUs');
 Route::get('/portfolio', 'HomeController@getPortfolio');
+Route::get('/course', 'HomeController@getCourses');
+Route::get('/libraryfacility', 'HomeController@getLibraryFacility');
+Route::get('/computerlab', 'HomeController@getComputerLab');
+
+
+Route::post('/postSignup', 'HomeController@postSignup');
+Route::post('/postContactUs', 'HomeController@postContactUs');
+
 
 /*
  ********************************************
