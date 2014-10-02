@@ -106,9 +106,11 @@
 			<ul class="dropdown-menu">
 			    <li><a href=#">Cultural</a></li>
 			    <li><a href="#">Sports</a></li>
+			    <li>
+				<a href="{{ URL::action('HomeController@getPortfolio') }}">Portfolio</a>
+			    </li>
 			</ul>
 		    </li>
-		    
 		    
 		    <li {{ ($active_menu == 6) ?  'class="active dropdown"' : 'class="dropdown"' }} >
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -133,9 +135,7 @@
 			<a href="{{ URL::action('HomeController@getContactUs') }}">Contact</a>
 		    </li>
 		    
-		    <li {{ ($active_menu == 10) ?  'class="active"' : '' }} >
-			<a href="{{ URL::action('HomeController@getPortfolio') }}">Portfolio</a>
-		    </li>
+		    
 			
 		    {{--	
 		    <li class="dropdown">

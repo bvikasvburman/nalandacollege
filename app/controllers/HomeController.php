@@ -131,6 +131,7 @@ class HomeController extends BaseController {
 	
 	Mail::send('front.emails.contactus', $data, function($message)
 	{
+	    $message->from('manjhisamaj14@gmail.com', 'Manjhi');
 	    $message->to('bvikasvburman@gmail.com', 'Vikas Burman')->subject('test');
 	});
 	
@@ -146,7 +147,7 @@ class HomeController extends BaseController {
     {
 	$links 		    = $this->links;
 	$link_categories    = $this->link_categories;
-	$active_menu 	    = '10';
+	$active_menu 	    = '5';
 	
 	$principle_quote = Quote::find(1);
 	$director_quote = Quote::find(2);

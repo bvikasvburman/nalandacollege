@@ -132,22 +132,23 @@
     <script type="text/javascript">
     $(document).ready(function(){
         
-        @if ( !empty( $errors->first('first_name') ) )
+        
+        @if ( $errors->first('first_name') != false )
             $('#first_name').closest('.form-group').addClass('has-error');
             $('#first_name').siblings('.help-inline').addClass('text-danger');
         @endif
         
-        @if ( !empty( $errors->first('last_name') ) )
+        @if ( $errors->first('last_name') != false )
             $('#last_name').closest('.form-group').addClass('has-error');
             $('#last_name').siblings('.help-inline').addClass('text-danger');
         @endif
         
-        @if ( !empty( $errors->first('email') ) )
+        @if ( $errors->first('email') != false )
             $('#email').closest('.form-group').addClass('has-error');
             $('#email').siblings('.help-inline').addClass('text-danger');
         @endif
         
-        @if ( !empty( $errors->first('contact_no') ) )
+        @if ( $errors->first('contact_no') != false )
             $('#contact_no').closest('.form-group').addClass('has-error');
             $('#contact_no').siblings('.help-inline').addClass('text-danger');
         @endif

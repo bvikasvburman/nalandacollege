@@ -30,7 +30,7 @@
                             <h5>Principle</h5>
                             {{--
                             <ul class="tag clearfix">
-                                <li class="btn"><a href="#">Web</a></li>
+                                <li class="fabtn"><a href="#">Web</a></li>
                                 <li class="btn"><a href="#">Ui</a></li>
                                 <li class="btn"><a href="#">Ux</a></li>
                                 <li class="btn"><a href="#">Photoshop</a></li>

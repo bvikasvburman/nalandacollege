@@ -19,7 +19,7 @@ class LinkCategoryController extends \BaseController {
      */
     public function index()
     {
-	$head['page_header'] = 'Education Category';
+	$head['page_header'] = 'Link Category';
         $results    = LinkCategory::paginate(20);
         return View::make('admin.linkcategories.index', compact('results', 'head'));
     }
@@ -32,7 +32,7 @@ class LinkCategoryController extends \BaseController {
      */
     public function create()
     {
-        $head['page_header'] = 'Education Category';
+        $head['page_header'] = 'Link Category';
         return View::make('admin.linkcategories.create', compact('head'));
     }
 
@@ -72,7 +72,7 @@ class LinkCategoryController extends \BaseController {
      */
     public function show($id)
     {
-        $head['page_header'] = 'LinkCategory';
+        $head['page_header'] = 'Link Category';
         $result = LinkCategory::find($id);
         return  View::make('admin.linkcategories.show', compact('result', 'head'));
     }
@@ -86,7 +86,7 @@ class LinkCategoryController extends \BaseController {
      */
     public function edit($id)
     {
-        $head['page_header']    = 'LinkCategory';
+        $head['page_header']    = 'Link Category';
         $data                   = LinkCategory::find($id);
         
         return View::make('admin.linkcategories.edit', compact('data', 'head' , 'id'));

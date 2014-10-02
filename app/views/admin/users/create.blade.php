@@ -136,7 +136,7 @@
         });
         
         
-        @if ( !empty( $errors->first('first_name') ) )
+        @if ( $errors->first('first_name') != false )
             $('#first_name').closest('.form-group').addClass('has-error');
             $('#first_name').siblings('.help-inline').addClass('text-danger');
         @endif

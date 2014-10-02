@@ -74,7 +74,7 @@
             height: 200 
         });
         
-        @if ( !empty( $errors->first('name') ) )
+        @if ( $errors->first('name') != false )
             $('#name').closest('.form-group').addClass('has-error');
             $('#name').siblings('.help-inline').addClass('text-danger');
         @endif
